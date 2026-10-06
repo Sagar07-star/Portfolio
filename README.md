@@ -1,10 +1,10 @@
-# Sagar - Personal Portfolio Website 🚀
-
+# Sagar - Personal Portfolio Website 
+This project is modified version of MoncyDev.
 This repository contains the personal portfolio website of **Sagar**.
 
 ---
 
-## 🛠️ Tech Stack & Features
+##  Tech Stack 
 
 - **Frontend**: React 18, TypeScript, Vite, CSS3
 - **Styling**: Bento-Grid Tech Stack Tiles, Responsive Modern Dark UI
@@ -17,7 +17,7 @@ This repository contains the personal portfolio website of **Sagar**.
 
 ---
 
-## 👤 Author
+##  Author
 
 **Sagar**  
 Information Science Engineering Student @ RVITM, Bengaluru  
