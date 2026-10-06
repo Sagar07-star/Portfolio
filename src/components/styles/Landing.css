@@ -1,0 +1,230 @@
+.landing-section {
+  width: 100%;
+  max-width: var(--cMaxWidth, 1920px);
+  margin: auto;
+  position: relative;
+  height: var(--vh, 100vh);
+  min-height: 560px;
+}
+
+.landing-container {
+  width: var(--cWidth, 92%);
+  margin: auto;
+  height: 100%;
+  position: relative;
+  max-width: var(--cMaxWidth, 1920px);
+}
+
+.landing-circle1 {
+  top: 0%;
+  left: 0%;
+  z-index: 15;
+  position: fixed;
+  width: 300px;
+  height: 300px;
+  background-color: #fb8dff;
+  box-shadow: inset -50px 40px 50px rgba(84, 0, 255, 0.6);
+  filter: blur(60px);
+  border-radius: 50%;
+  animation: loadingCircle 5s linear infinite;
+}
+
+.nav-fade {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 130px;
+  background-image: linear-gradient(0deg, transparent, var(--backgroundColor, #0b080c) 70%);
+  pointer-events: none;
+  z-index: 12;
+  opacity: 0;
+  left: 0;
+}
+
+@keyframes loadingCircle {
+  0% {
+    transform: translate(-95%, -75%) rotateZ(0deg);
+  }
+
+  100% {
+    transform: translate(-95%, -75%) rotateZ(360deg);
+  }
+}
+
+.landing-circle2 {
+  top: 50%;
+  right: 0%;
+  transform: translate(calc(100% - 2px), -50%);
+  z-index: 9;
+  position: fixed;
+  display: none;
+  width: 300px;
+  height: 300px;
+  background-color: #fb8dff;
+  box-shadow: inset -50px 40px 50px rgba(84, 0, 255, 0.6);
+  filter: blur(50px);
+  border-radius: 50%;
+  animation: loadingCircle2 5s linear infinite;
+}
+
+@keyframes loadingCircle2 {
+  100% {
+    transform: translate(calc(100% - 2px), -50%) rotate(360deg);
+  }
+}
+
+/* ---------- Left: name ---------- */
+.landing-intro {
+  position: absolute;
+  z-index: 9;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 70px;
+  /* keeps it clear of the navbar */
+}
+
+.landing-intro h2 {
+  margin: 0 0 8px;
+  color: var(--accentColor, #c481ff);
+  font-size: clamp(18px, 2vw, 28px);
+  font-weight: 300;
+  letter-spacing: 2px;
+}
+
+.landing-intro h1 {
+  margin: 0;
+  letter-spacing: 2px;
+  font-size: clamp(56px, 10vw, 150px);
+  line-height: 1;
+  font-weight: 600;
+  font-family: "Geist", sans-serif;
+}
+
+/* ---------- Right: role text and buttons ---------- */
+.landing-info {
+  position: absolute;
+  z-index: 9;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  text-align: right;
+  padding-top: 70px;
+}
+
+.landing-info h3 {
+  margin: 0 0 8px;
+  color: var(--accentColor, #c481ff);
+  font-size: clamp(18px, 2vw, 28px);
+  font-weight: 300;
+  letter-spacing: 2px;
+}
+
+.landing-info h2 {
+  margin: 0;
+  font-size: clamp(30px, 4.6vw, 70px);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: 2px;
+  font-family: "Geist", sans-serif;
+}
+
+/* Rolling role text: both lines share one grid cell */
+.landing-info-h2 {
+  display: grid;
+  overflow: hidden;
+}
+
+.landing-h2-1,
+.landing-h2-2 {
+  grid-area: 1 / 1;
+  white-space: nowrap;
+}
+
+.landing-h2-1 {
+  animation: landingRoll 6s ease-in-out infinite;
+}
+
+.landing-h2-2 {
+  animation: landingRoll 6s ease-in-out 3s infinite backwards;
+}
+
+.landing-h2-info,
+.landing-h2-info-1 {
+  display: none;
+}
+
+@keyframes landingRoll {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+
+  8%,
+  42% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  50%,
+  100% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}
+
+.landing-actions {
+  justify-content: flex-end;
+}
+
+.hero-btn {
+  transition: transform 0.2s ease;
+}
+
+.hero-btn:hover {
+  transform: translateY(-2px);
+}
+
+/* ---------- Tablet and mobile ---------- */
+@media (max-width: 900px) {
+  .landing-intro {
+    bottom: 50%;
+    justify-content: flex-end;
+    padding-top: 80px;
+    padding-bottom: 16px;
+  }
+
+  .landing-info {
+    top: 50%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding-top: 16px;
+    justify-content: flex-start;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .landing-actions {
+    justify-content: flex-start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .landing-h2-1,
+  .landing-h2-2 {
+    animation: none;
+  }
+
+  .landing-h2-2 {
+    display: none;
+  }
+}
